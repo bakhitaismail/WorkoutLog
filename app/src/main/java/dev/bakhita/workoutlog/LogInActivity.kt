@@ -39,6 +39,7 @@ class LogInActivity : AppCompatActivity() {
     fun validateLogin(){
         var email = etEmail.text.toString()
         var password = etPassword.text.toString()
+
         if (email.isBlank()){
             tilEmail.error="Email is required"
         }

@@ -3,6 +3,7 @@ package dev.bakhita.workoutlog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
@@ -74,6 +75,13 @@ class SignUpActivity : AppCompatActivity() {
         if (confirm.isBlank()){
             tilConfirm.error="Confirm Password"
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            tilEmail.error="Email is invalid"
+        }
+        else{
+            tilConfirm.error="Password mismatch"
+        }
 
     }
+
 }
