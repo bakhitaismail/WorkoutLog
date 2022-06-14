@@ -5,4 +5,7 @@
     <string name="login">LOGIN</string>
     <string name="don_t_have_an_account_sign_up">Don\'t have an account? <u>Sign Up</u></string>
     <string name="already_have_an_account_log_in">Already have an account? <u>Log In</u></string>
+    <string name="profile">Profile</string>
+    <string name="track">Track</string>
+    <string name="plan">Plan</string>
 </resources>
