@@ -8,78 +8,59 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import dev.bakhita.workoutlog.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
-    lateinit var tilFirstname: TextInputLayout
-    lateinit var etFirstname: TextInputEditText
-    lateinit var tilLastname: TextInputLayout
-    lateinit var etLastname: TextInputEditText
-    lateinit var tilEmail: TextInputLayout
-    lateinit var etEmail: TextInputEditText
-    lateinit var tilPassword: TextInputLayout
-    lateinit var etPassword: TextInputEditText
-    lateinit var tilConfirm: TextInputLayout
-    lateinit var etConfirm: TextInputEditText
-    lateinit var btnSignup: Button
-    lateinit var tvLogin: TextView
+    lateinit var binding: ActivitySignUpBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        tilFirstname =findViewById(R.id.tilFirstname)
-        etFirstname = findViewById(R.id.etFirstname)
-        tilLastname= findViewById(R.id.tilLastname)
-        etLastname= findViewById(R.id.etLastname)
-        tilEmail= findViewById(R.id.tilEmail)
-        etEmail= findViewById(R.id.etEmail)
-        tilPassword= findViewById(R.id.tilPassword)
-        etPassword= findViewById(R.id.etPassword)
-        tilConfirm= findViewById(R.id.tilConfirm)
-        etConfirm= findViewById(R.id.etConfirm)
-        btnSignup= findViewById(R.id.btnSignup)
-        tvLogin= findViewById(R.id.tvLogin)
+        binding= ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvLogin.setOnClickListener {
+
+        binding.tvLogin.setOnClickListener {
             val intent= Intent(this,LogInActivity::class.java)
             startActivity(intent)
         }
 
-        btnSignup.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             validateLogin()
 
         }
     }
     fun validateLogin(){
-        var email = etEmail.text.toString()
-        var password = etPassword.text.toString()
-        var firstname = etFirstname.text.toString()
-        var lastname = etLastname.text.toString()
-        var confirm = etConfirm.text.toString()
+        var email = binding.etEmail.text.toString()
+        var password = binding.etPassword.text.toString()
+        var firstname = binding.etFirstname.text.toString()
+        var lastname = binding.etLastname.text.toString()
+        var confirm = binding.etConfirm.text.toString()
         if (email.isBlank()){
-            tilEmail.error="Email is required"
+            binding.tilEmail.error=getString(R.string.email_required)
         }
 
         if (password.isBlank()){
-            tilPassword.error="Password is required"
+            binding.tilPassword.error=getString(R.string.password_required)
         }
 
         if (firstname.isBlank()){
-            tilFirstname.error="First name is required"
+            binding.tilFirstname.error=getString(R.string.first_name_is_required)
         }
 
         if (lastname.isBlank()){
-            tilLastname.error="Last name is required"
+            binding.tilLastname.error=getString(R.string.last_name_is_required)
         }
 
         if (confirm.isBlank()){
-            tilConfirm.error="Confirm Password"
+            binding.tilConfirm.error=getString(R.string.confirm_password)
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            tilEmail.error="Email is invalid"
+            binding.tilEmail.error=getString(R.string.email_is_invalid)
         }
         else{
-            tilConfirm.error="Password mismatch"
+            binding.tilConfirm.error=getString(R.string.password_mismatch)
         }
 
     }

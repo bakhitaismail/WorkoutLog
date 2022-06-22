@@ -7,15 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class TrackFragment : Fragment() {
-//the Fragment() is a constructor function
+class PlanFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_track, container, false)
+        return inflater.inflate(R.layout.fragment_plan, container, false)
     }
 
 }
